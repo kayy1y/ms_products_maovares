@@ -72,4 +72,6 @@ jobs:
           app-name: 'ms-products-maovares'
           slot-name: 'Production'
           package: '*.jar'
+
+#a
           
