@@ -1,0 +1,34 @@
+# Query: ClientCertValidationFilter
+# ContextLines: 1
+
+9 results - 3 files
+
+LOGGING.md:
+   55  
+   56: #### Security Filter (`ClientCertValidationFilter`)
+   57  - Logs de validación de certificados
+
+  141  1. **CorrelationIdFilter**: Genera correlation ID y log de inicio
+  142: 2. **ClientCertValidationFilter**: Valida certificado y log de éxito
+  143  3. **ProductController**: Log de entrada con ID del producto
+
+src/main/java/com/maovares/ms_products/product/infraestructure/http/config/FilterConfig.java:
+   6  
+   7: import com.maovares.ms_products.product.infraestructure.http.filter.ClientCertValidationFilter;
+   8  
+
+  12      @Bean
+  13:     public FilterRegistrationBean<ClientCertValidationFilter> clientCertValidationFilter() {
+  14:         FilterRegistrationBean<ClientCertValidationFilter> registrationBean = new FilterRegistrationBean<>();
+  15:         registrationBean.setFilter(new ClientCertValidationFilter());
+  16          registrationBean.addUrlPatterns("/*");
+  17          registrationBean.setOrder(2);
+  18:         registrationBean.setName("clientCertValidationFilter");
+  
+  
+  19          return registrationBean;
+
+src/main/java/com/maovares/ms_products/product/infraestructure/http/filter/ClientCertValidationFilter.java:
+  14  
+  15: public class ClientCertValidationFilter implements Filter {
+  16  

@@ -16,6 +16,7 @@ public class FilterConfig {
         registrationBean.addUrlPatterns("/*");
         registrationBean.setOrder(2);
         registrationBean.setName("clientCertValidationFilter");
+        registrationBean.setEnabled(false);
         return registrationBean;
     }
 }
